@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Input from './Components/Input';
+import Validationcomponent from './Components/Validation';
 class App extends Component {
 
 state = {
@@ -35,6 +36,7 @@ state = {
     return (
       <div className="App">
         <Input />
+        <Validationcomponent />
       </div>
     );
   }
