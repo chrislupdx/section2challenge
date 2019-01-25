@@ -12,8 +12,6 @@ state = {
   ],
 }
 
-
-
   changeHandler = (event, id) => {
     const Index = this.state.thingss.findIndex(t => {
       return t.id === id;
@@ -36,7 +34,9 @@ state = {
     return (
       <div className="App">
         <Input />
-        <Validationcomponent />
+        <Validationcomponent
+        inputtedwords = "potatoes"
+        />
       </div>
     );
   }
