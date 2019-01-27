@@ -24,7 +24,7 @@ class App extends Component {
         <Validationcomponent
 
           changed = {this.lengthHandler}
-          inputtedwords = {this.state.inputtedwords}
+          length = {this.state.length}
         />
       </div>
     );

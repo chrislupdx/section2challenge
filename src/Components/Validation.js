@@ -5,7 +5,7 @@ const validationcomponent = ( props ) => {
     <div className = "validation">
     <input type = "text"
     onChange = {props.changed}
-    value={props.inputtedwords} />
+    value={props.length} />
     </div>
   )
 };
