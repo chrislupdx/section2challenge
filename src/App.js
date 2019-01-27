@@ -4,23 +4,27 @@ import Validationcomponent from './Components/Validation';
 
 class App extends Component {
   state = {
-    inputtedwords: 'ugh',
+    inputtedwords: 'ugh', length: 0,
   }
 
   lengthHandler = (event) => {
+    this.setState({inputtedwords: event.target.value, length: event.target.value.length });
     console.log('ding');
-    this.setState({inputtedwords: event.target.value});
   }
 
   render() {
     return (
       <div className="App">
-        <Input
-        changed = {this.lengthHandler}
-        />
+        <form>
+          <Input
+          changed = {this.lengthHandler}
+          />
+        </form>
+
         <Validationcomponent
-        words = {Validationcomponent.inputtedwords}
-        inputtedwords = {this.state.inputtedwords}
+
+          changed = {this.lengthHandler}
+          inputtedwords = {this.state.inputtedwords}
         />
       </div>
     );
@@ -28,3 +32,5 @@ class App extends Component {
 }
 
 export default App;
+
+// <input type="text" onChange={this.lengthHandler} />

@@ -5,12 +5,12 @@ const validationcomponent = ( props ) => {
     <div className = "validation">
     <input type = "text"
     onChange = {props.changed}
-    value={props.words} />
-
+    value={props.inputtedwords} />
     </div>
   )
 };
 
 export default validationcomponent;
 
-// <p>{props.inputtedwords}></p>
+
+// <p>{props.inputtedwords}</p>
