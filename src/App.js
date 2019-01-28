@@ -20,6 +20,11 @@ class App extends Component {
     //i'm pretty sure we need to inject conditional loggic here
   }
 
+  tooshortHandler = (event) => {
+    const tooshort = this.state.tooshort;
+    this.setState({tooshort: !tooshort});
+  }
+
   render() {
 
     let longenough = null;
@@ -31,15 +36,14 @@ class App extends Component {
         <h1> Long enough </h1>
         </div>
       );
-
     }
-    // else {
-    //   tooshort = (
-    //     <div className="tooshort">
-    //     <h1> Too short </h1>
-    //     </div>
-    //   );
-    // }
+    else {
+      tooshort = (
+        <div className="tooshort">
+        <h1> Too short </h1>
+        </div>
+      );
+    }
 
     return (
       <div className="App">
