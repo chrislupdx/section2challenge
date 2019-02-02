@@ -1,0 +1,7 @@
+.Char {
+  width: 50%;
+  box-shadow: 0 15px 5 px #fff;
+  border: 2px solid #eee;
+  padding: 10px;
+  text-align: center;
+}

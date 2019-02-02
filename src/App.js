@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import Input from './Components/Input';
+import Char from './Components/Char';
 import Validationcomponent from './Components/Validation';
 
 class App extends Component {
   state = {
-    inputtedwords: 'ugh', length: 0,
+    inputtedwords: 'ugh',
+    length: 0,
     longenough: false,
     tooshort: false,
   }
+
+  // charcomponentHandler = (event) => {
+  // //map key input into individual comopnents for every word there is in input on listen
+  //   console.log('lol');
+  // }
 
   lengthHandler = (event) => {
     this.setState({inputtedwords: event.target.value, length: event.target.value.length });
@@ -21,14 +28,30 @@ class App extends Component {
   }
 
   tooshortHandler = (event) => {
-    const tooshort = this.state.tooshort;
+    const tooshort = !this.state.tooshort;
     this.setState({tooshort: !tooshort});
   }
 
   render() {
-
+    const style = {
+      backgroundColor: 'Grey',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    };
+    let inputcharacters = this.state.inputtedwords;
     let longenough = null;
     let tooshort = null;
+
+    if (inputcharacters) {
+      inputcharacters = (
+        <div className="showinput">
+        <h1> {this.state.inputcharacters} </h1>
+        </div>
+      );
+    }
+
 
     if (this.state.length > 5) {
       longenough = (
@@ -37,10 +60,12 @@ class App extends Component {
         </div>
       );
     }
-    else {
+
+    if (this.state.length < 5) {
       tooshort = (
         <div className="tooshort">
         <h1> Too short </h1>
+
         </div>
       );
     }
@@ -61,9 +86,9 @@ class App extends Component {
         {longenough}
         {tooshort}
 
-
-
-
+        <Char
+          style = {style}
+        />
 
       </div>
 
