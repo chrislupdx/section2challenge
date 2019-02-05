@@ -5,7 +5,7 @@ import Validationcomponent from './Components/Validation';
 
 class App extends Component {
   state = {
-    inputtedwords: 'ugh',
+    inputtedwords: '',
     length: 0,
     longenough: false,
     tooshort: false,
@@ -19,6 +19,13 @@ class App extends Component {
   lengthHandler = (event) => {
     this.setState({inputtedwords: event.target.value, length: event.target.value.length });
     console.log('ding');
+  }
+
+  deleteHandler = (index ) => {
+    const text = this.state.inputtedwords.split('');
+    text.splice(index, 1);
+    const updatedText = text.join('');
+    this.setState({inputtedwords: updatedText});
   }
 
   longenoughHandler = (event) => {
@@ -44,13 +51,22 @@ class App extends Component {
     let longenough = null;
     let tooshort = null;
 
-    if (inputcharacters) {
-      inputcharacters = (
-        <div className="showinput">
-        <h1> {this.state.inputtedwords} </h1>
-        </div>
-      );
-    }
+    const charList = this.state.inputtedwords.split('').map((ch, index) => {
+      return <Char
+      character ={ch}
+      key={index}
+      clicked = {( ) => this.deleteHandler(index)} />;
+    });
+
+    // if (inputcharacters) {
+    //   inputcharacters = (
+    //     <div className= "showinput">
+    //     {this.state.lengthHandler.map( inputtedwords => {
+    //       return <Char />}
+    //     )}
+    //     </div>
+    //   );
+    // }
 
 
     if (this.state.length > 5) {
@@ -86,6 +102,7 @@ class App extends Component {
         <Validationcomponent
           changed = {this.lengthHandler}
           length = {this.state.length}
+
         />
         {longenough}
         {tooshort}
@@ -94,6 +111,7 @@ class App extends Component {
         <Char
           style = {style}
         />
+        {charList}
 
       </div>
 
