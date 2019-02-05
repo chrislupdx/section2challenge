@@ -47,7 +47,7 @@ class App extends Component {
     if (inputcharacters) {
       inputcharacters = (
         <div className="showinput">
-        <h1> {this.state.inputcharacters} </h1>
+        <h1> {this.state.inputtedwords} </h1>
         </div>
       );
     }
@@ -70,6 +70,10 @@ class App extends Component {
       );
     }
 
+    if (this.state.inputtedwords) {
+
+    }
+
     return (
       <div className="App">
         <form>
@@ -85,6 +89,7 @@ class App extends Component {
         />
         {longenough}
         {tooshort}
+        {inputcharacters}
 
         <Char
           style = {style}
